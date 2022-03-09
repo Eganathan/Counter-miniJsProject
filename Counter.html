@@ -1,0 +1,130 @@
+<!Doctype html>
+<html>
+<head>
+<meta http-equiv=""refresh" content="3">
+<title> Ekha- Counter</title>
+<style>
+body{
+background-color: #E1EBEE;
+}
+
+#counter{
+font-size:15em;
+tex
+}
+
+#count-wrapper
+{
+padding:10px;
+border-radius:25%;
+min-width: 300px;
+display:inline-block;
+}
+
+#counter{
+text-align:center;
+padding:5px;
+color: white;
+border: 1px black dashed;
+border-radius:50%;
+background-color: #00538C;
+}
+
+#bd{
+text-align:center;
+}
+
+button{
+background-color: white;
+padding:10px;
+margin-left:25px;
+letter-spacing:2px;
+}
+
+</style>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+<body>
+
+<div id="bd">
+
+<div id="count-wrapper">
+<h1 id="counter">0</h1>
+</div>
+
+<div id="btn-grp">
+
+
+<button onclick="reset()" >  Reset <span class="material-icons">
+restart_alt
+</span></button>
+<button onclick="reduce()" > 
+Decrement
+<span class="material-icons">
+arrow_downward
+</span>
+
+</button>
+<button onclick="increase()" > Increment<span class="material-icons" >
+arrow_upward
+</span> </button>
+
+</div>
+
+</div>
+
+<script>
+
+var getCurrentValue = parseInt(document.getElementById("counter").innerHTML);
+
+//decrease
+function reduce()
+{
+	if( getCurrentValue >= 9)
+	{
+	setValue(--getCurrentValue);
+	
+	}else if( getCurrentValue <= 9 && getCurrentValue > 0)
+	{
+		setValue( "0"+ --getCurrentValue);
+	}else{
+	alert("Oh oh! You are trying to test me :) ");}
+}
+
+function increase()
+{
+	if( getCurrentValue >= 9)
+	{
+	setValue(++getCurrentValue);
+	
+	}else if( getCurrentValue  >= 0 && getCurrentValue < 9)
+	{
+		setValue( "0"+ ++getCurrentValue);
+	}
+}
+
+//reset
+function reset()
+{
+	if( getCurrentValue  >= 0)
+	{
+	getCurrentValue = 0;
+	setValue(getCurrentValue);
+	}
+}
+
+function setValue(input)
+{
+	document.getElementById("counter").innerHTML = input;
+}
+
+const disableselect = (e) => {  
+  return false  
+}  
+document.onselectstart = disableselect  
+document.onmousedown = disableselect
+
+</script>
+</body>
+</html>
